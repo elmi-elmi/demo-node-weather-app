@@ -23,7 +23,7 @@
 // //
 // const request = require('postman-request');
 //
-// const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.aeyJ1Ijoic2hhaHJva2hlbCIsImEiOiJjbDBudmw3MDQxZ3UyM2NtOXdueG42bGpuIn0.9Lw-SlLxcWBj61EOcvRnYQ&limit=1';
+// const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoic2hhaHJva2hlbCIsImEiOiJjbDBudmw3MDQxZ3UyM2NtOXdueG42bGpuIn0.9Lw-SlLxcWBj61EOcvRnYQ&limit=1';
 //
 // request({url: geocodeURL, json: true}, (error, response) => {
 //     if (error) {
@@ -39,17 +39,9 @@
 //         console.log(geometry.coordinates)
 //     }
 // })
-//
+const geocode = require('./utils/geocode');
 
-const add = (a, b, callback) => {
-    setTimeout(() => {
-        const sum = a + b;
-        callback(sum);
-
-    }, 1000);
-};
-
-add(1,2,(sum)=>{
-    console.log(sum)
-})
-
+geocode('kamfiruz', (error, data) => {
+    console.log('Error:', error);
+    console.log('Data:', data);
+});
