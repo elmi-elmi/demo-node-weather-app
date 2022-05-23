@@ -20,23 +20,36 @@
 // })
 // It is currently 7 degress out. Its feels like 6 degress out.
 
+// //
+// const request = require('postman-request');
 //
-const request = require('postman-request');
+// const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.aeyJ1Ijoic2hhaHJva2hlbCIsImEiOiJjbDBudmw3MDQxZ3UyM2NtOXdueG42bGpuIn0.9Lw-SlLxcWBj61EOcvRnYQ&limit=1';
+//
+// request({url: geocodeURL, json: true}, (error, response) => {
+//     if (error) {
+//         console.log('Unable to connect to mapbox service')
+//     } else if (!response.body.features) {
+//         console.log('the location does not found');
+//         console.log(response.body.message)
+//
+//     } else {
+//         console.log(response.body)
+//         const {geometry} = response.body.features[0]
+//         console.log(geometry)
+//         console.log(geometry.coordinates)
+//     }
+// })
+//
 
-const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.aeyJ1Ijoic2hhaHJva2hlbCIsImEiOiJjbDBudmw3MDQxZ3UyM2NtOXdueG42bGpuIn0.9Lw-SlLxcWBj61EOcvRnYQ&limit=1';
+const add = (a, b, callback) => {
+    setTimeout(() => {
+        const sum = a + b;
+        callback(sum);
 
-request({url: geocodeURL, json: true}, (error, response) => {
-    if (error) {
-        console.log('Unable to connect to mapbox service')
-    } else if (!response.body.features) {
-        console.log('the location does not found');
-        console.log(response.body.message)
+    }, 1000);
+};
 
-    } else {
-        console.log(response.body)
-        const {geometry} = response.body.features[0]
-        console.log(geometry)
-        console.log(geometry.coordinates)
-    }
+add(1,2,(sum)=>{
+    console.log(sum)
 })
 
